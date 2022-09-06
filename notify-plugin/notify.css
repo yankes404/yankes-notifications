@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+:root {
+    --color: #893efa;
+}
+
+.notifications {
+    position: fixed;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    padding: 25px 20px
+}
+
+.notify {
+    width: 300px;
+    padding: 5px 30px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: notify .5s ease-in-out;
+    margin: 15px;
+    box-shadow: 0px 0px 15px -30px #000;
+}
+
+.notifyDarkTheme {
+    background: rgb(34, 34, 37);
+    color: #fff;
+}
+
+.notifyWhiteTheme {
+    background: #ccc;
+    color: #888;
+}
+
+.xmark {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 20px;
+    margin: 0 0 25px 25px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.notifyDarkTheme .xmark {
+    color: #9898;
+}
+
+.notifyWhiteTheme .xmark {
+    color: #aaa;
+}
+
+.notifyDarkTheme .xmark:hover,
+.notifyWhiteTheme .xmark:hover {
+    color: var(--color);
+}
+
+.timeline {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+}
+
+.notifyDarkTheme .line,
+.notifyWhiteTheme .line {
+    width: 0%;
+    height: 100%;
+    background: var(--color);
+}
+
+
+/*KEYFRAMES*/
+
+@keyframes notify {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hideNotify {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+}
+
+@keyframes line {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@media (max-width: 975px) {
+    .notify {
+        width: 50vw;
+    }
+}
